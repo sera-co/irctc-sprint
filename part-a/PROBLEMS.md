@@ -1,4 +1,4 @@
-Problem 1: Tatkal Booking Crashes at 10:00 AM
+## Problem 1: Tatkal Booking Crashes at 10:00 AM
 
 What is broken:
 Tatkal booking flow becomes unusable at exactly 10:00 AM due to server overload. The system provides no feedback, queue, or recovery mechanism.
@@ -24,7 +24,7 @@ After 2–3 minutes, tickets show “Not Available”
 Where exactly it breaks:
 Step 6–7: When all users hit the booking endpoint simultaneously, the backend cannot handle concurrent requests → server crash / timeout.
 
-Problem 2: Search Filters Do Not Work Reliably
+## Problem 2: Search Filters Do Not Work Reliably
 
 What is broken:
 Filters like class, availability, and departure time either don’t apply correctly or reset unexpectedly.
@@ -50,7 +50,7 @@ Where exactly it breaks:
 Step 4–6: Filter logic is inconsistent with backend data.
 Step 8: UI state is not preserved → filters reset.
 
-Problem 3: Seat Selection Resets
+## Problem 3: Seat Selection Resets
 
 What is broken:
 Selected seat preference (e.g., lower berth) is not retained in the next step.
@@ -74,7 +74,7 @@ Preference is missing or reset
 Where exactly it breaks:
 Step 4–5: Data is not persisted correctly between frontend and backend.
 
-Problem 4: Payment Failure Without Recovery
+## Problem 4: Payment Failure Without Recovery
 
 How I found it:
 While attempting a booking flow and reaching the payment page.
@@ -102,7 +102,7 @@ User must restart entire process
 Where exactly it breaks:
 Step 5–7: No session persistence or retry mechanism after payment failure.
 
-Problem 5: No Predictive Insight for Waitlist Tickets
+## Problem 5: No Predictive Insight for Waitlist Tickets
 
 How I found it:
 While checking ticket availability for long-distance travel.
